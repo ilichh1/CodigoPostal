@@ -7,14 +7,26 @@ Página web que pregunta el codigo postal y te da la ubicación y el cilma
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Código Postal</title>
+        <!-- Mapbox -->
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
+        <!-- ./Mapbox -->
+        <style>
+            #map { position:absolute; width:100%; }
+            #cpinput { margin-bottom: 1em; }
+        </style>
     </head>
     <body>
-        <div>
-         Código Postal: <input type="text" name="fname">
-         <button type="button" id="enviarZip">Enviar</button>
-         </div>
+        <div id="cpinput">
+            Código Postal: <input type="text" id="zipCode">
+            <button type="button" id="enviarZip">Enviar</button>
+        </div>
+
+        <div id='map' style='width: 400px; height: 300px;'></div>
+
+        <!-- ./JS -->
         <script src="./js/jquery.min.js"></script>
         <script src="./js/functions.js"></script>
-        <script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction"></script>
+
     </body>
 </html>
